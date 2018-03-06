@@ -57,12 +57,12 @@ extensions = [
     'IPython.sphinxext.ipython_directive',
 
     # Enable Google Analytics ( requires: https://pypi.python.org/pypi/sphinxcontrib-googleanalytics )
-    'sphinxcontrib.googleanalytics',
+    #'sphinxcontrib.googleanalytics',
 ]
 
 # Google Analytics ID to enable tracking of site traffic
-googleanalytics_id = "UA-103385820-1"
-googleanalytics_enabled = True
+#googleanalytics_id = "UA-103385820-1"
+#googleanalytics_enabled = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

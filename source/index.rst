@@ -70,6 +70,17 @@ Course outlines
    Lesson1-Intro-Python-GIS
    Lesson1-Geometric-Objects
    Exercise-1
+  
+.. toctree::
+   :maxdepth: 2
+   :caption: Lesson 2
+
+   Lesson2-overview
+   Lesson2-download-data
+   Lesson2-overview-pandas-geopandas
+   Lesson2-pandas-intro
+   Lesson2-geopandas-basics
+   Exercise-2
 
 .. toctree::
   :maxdepth: 2
