@@ -114,7 +114,8 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
+    # packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
+    packages=['sample'],
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
@@ -122,7 +123,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['peppercorn', 'sphinx', 'sphinx_rtd_theme', 'numpy', 'pandas', 'bokeh'],  # Optional
+    # install_requires=['peppercorn'],  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
@@ -160,9 +161,9 @@ setup(
     #
     # For example, the following would provide a command called `sample` which
     # executes the function `main` from this package when invoked:
-    #entry_points={  # Optional
-    #    'console_scripts': [
-    #        'sample=sample:main',
-    #    ],
-    #},
+    entry_points={  # Optional
+       'console_scripts': [
+           'sample=sample.command_line:t3',
+       ],
+    },
 )
