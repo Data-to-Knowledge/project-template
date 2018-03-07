@@ -11,3 +11,5 @@ There are two primary template sources: `sampleproject <https://github.com/pypa/
 The sampleproject and associated Python documentation describes how to prepare a Python project to package it for PyPI, while the Automating GIS-processes describes how to create very nice documentation (especially for natural scientists) using Sphinx and GitHub.
 
 Only minor changes have been made from the original two repositories other than the removal or commenting out of certain parts due to the unnessecary bloatiness for a template (Automating GIS-processes) or functions that are unecessary for this kind of template (sampleproject).
+
+The associated webpage for this repository can be found `here <https://mullenkamp.github.io/project_template>`_
