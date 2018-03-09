@@ -1,10 +1,10 @@
 package:
-  name: pyinstrument
-  version: "0.13.1"
+  name: project_template
+  version: "1.0.0"
 
 source:
-  git_rev: v0.13.1
-  git_url: https://github.com/joerick/pyinstrument.git
+  git_rev: v1.0.0
+  git_url: https://github.com/mullenkamp/project_template.git
 
 requirements:
   build:
@@ -12,12 +12,13 @@ requirements:
     - setuptools
   run:
     - python
+    - pandas
 
 test:
   imports:
-    - pyinstrument
+    - project_template
 
 about:
-  home: https://github.com/joerick/pyinstrument
-  license: BSD
+  home: https://github.com/mullenkamp/project_template
+  license: Apache License 2.0
   license_file: LICENSE
