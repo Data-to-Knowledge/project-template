@@ -16,4 +16,4 @@ The associated documentation `site <https://packaging.python.org/tutorials/distr
 
 The documentation to create a conda package from a PyPI package can be found `here <https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html>`_.
 
-The associated webpage for this repository can be found `here <https://mullenkamp.github.io/project_template>`_
+The associated webpage for this repository can be found `here <http://project-template1.readthedocs.io>`_
