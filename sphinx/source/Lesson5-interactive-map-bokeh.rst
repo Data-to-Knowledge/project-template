@@ -3,9 +3,6 @@ Interactive maps with Bokeh
 
 Our ultimate goal today is to learn few concepts how we can produce nice looking interactive maps using Geopandas and Bokeh such as:
 
-.. raw:: html
-   :file: bokeh_html/sw_catch_2018-03-02.html
-
 Simple interactive point plot
 -----------------------------
 

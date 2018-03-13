@@ -24,7 +24,11 @@ At the end of the course you should be able to:
 
 .. raw:: html
    :file: bokeh_html/precip_sw_2018-03-02.html
-   
+
+
+.. raw:: html
+  :file: bokeh_html/sw_catch_2018-03-02.html
+
 Why Python for GIS?
 -------------------
 
