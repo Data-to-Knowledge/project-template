@@ -28,7 +28,7 @@ Additionally, the folder that contains the actual python modules needs to have a
 
 Once the setup.py, __init__.py, and the modules as arranged appropriately make sure that setuptools and pip are installed::
 
-  pip install setupttols pip
+  pip install setuptools pip
 
 or::
 
