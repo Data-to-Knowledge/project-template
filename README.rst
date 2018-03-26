@@ -28,7 +28,7 @@ Additionally, the folder that contains the actual python modules needs to have a
 
 Once the setup.py, __init__.py, and the modules as arranged appropriately make sure that setuptools and pip are installed::
 
-  pip install setupttols pip
+  pip install setuptools pip
 
 or::
 
@@ -41,7 +41,7 @@ Then check to make sure that everything builds properly by running the following
 If everything builds correctly, your new package should be installed in your Python installation.
 To test, run a Python instance, try to import the package, and load a module::
 
- python
+  python
   import hilltoppy
   hilltoppy.com.makepy_hilltop()
 
