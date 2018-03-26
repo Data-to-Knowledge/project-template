@@ -62,6 +62,8 @@ Create a folder called conda within the root directory and run the following to 
 
 Where hilltop-py would be the package name in PyPI.
 
+**Note:** You may need to install m2-patch via conda if skeleton fails.
+
 A meta.yml file will have been created with the necessary config info for conda. Look over it and make some tweaks to descriptions or names if necessary. Then, in the directory with the meta.yml file, run the following to build the conda package::
 
   conda-build .
