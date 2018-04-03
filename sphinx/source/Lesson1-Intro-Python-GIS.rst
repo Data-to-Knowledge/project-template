@@ -29,6 +29,9 @@ At the end of the course you should be able to:
 .. raw:: html
   :file: bokeh_html/sw_catch_2018-03-02.html
 
+.. raw:: html
+  :file: bokeh_html/HydroDataFlows.html
+
 Why Python for GIS?
 -------------------
 
