@@ -30,7 +30,7 @@ At the end of the course you should be able to:
   :file: bokeh_html/sw_catch_2018-03-02.html
 
 .. raw:: html
-  :file: bokeh_html/HydroDataFlows.html
+  :file: bokeh_html/HydroDataFlows1.html
 
 Why Python for GIS?
 -------------------
