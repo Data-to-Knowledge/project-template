@@ -54,6 +54,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinx.ext.autosummary',
+    'sphinx.ext.napoleon',
 	#'rst2pdf.pdfbuilder',
 
     # IPython console
@@ -63,6 +64,8 @@ extensions = [
     # Enable Google Analytics ( requires: https://pypi.python.org/pypi/sphinxcontrib-googleanalytics )
     #'sphinxcontrib.googleanalytics',
 ]
+
+autosummary_generate = True
 
 # index - master document
 # rst2pdf - name of the generated pdf
