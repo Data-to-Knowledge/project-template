@@ -2,9 +2,17 @@
 from setuptools import setup, find_packages
 # To use a consistent encoding
 from codecs import open
-from os import path
+from os import path, environ
 
 here = path.abspath(path.dirname(__file__))
+
+# The below code is for readthedocs. To have sphinx/readthedocs interact with
+# the contained package, readthedocs needs to build the package. But the dependencies
+# should be installed via the conda yml env file rather than during the package build.
+if environ.get('READTHEDOCS', False) == 'True':
+    INSTALL_REQUIRES = []
+else:
+    INSTALL_REQUIRES = ['pandas', 'pywin32']
 
 # Get the long description from the README file
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
@@ -116,7 +124,7 @@ setup(
     #
     # For an analysis of "install_requires" vs pip's requirements files see:
     # https://packaging.python.org/en/latest/requirements.html
-    install_requires=['pandas', 'pywin32'],  # Optional
+    install_requires=INSTALL_REQUIRES,  # Optional
 
     # List additional groups of dependencies here (e.g. development
     # dependencies). Users will be able to install these using the "extras"
