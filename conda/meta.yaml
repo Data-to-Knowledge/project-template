@@ -1,6 +1,6 @@
-{% set name = "hilltop-py" %}
-{% set version = "1.0.7" %}
-{% set sha256 = "5c05fb4beaaf5239b3411996895aaa631f40e1e69af2e5ec45b07f76c16fe6da" %}
+{% set name = "ETo" %}
+{% set version = "1.0.9" %}
+{% set sha256 = "7e5a4984c18f64ebeb26e6a9366e7b61d30aeaede66598ab72b3fd23facb5e9c" %}
 
 # sha256 is the prefered checksum -- you can get it for a file with:
 #  `openssl sha256 <file name>`.
@@ -37,18 +37,16 @@ requirements:
   run:
     - python
     - pandas
-    - pywin32
 
 test:
   imports:
-    - hilltoppy
+    - eto
 
 about:
-  home: https://github.com/mullenkamp/hilltop-py
+  home: https://github.com/mullenkamp/ETo
   license: Apache License 2.0
   license_family: APACHE
-  summary: Functions to extract data from Hilltop
-  description: "Repository for Hilltop Python tools\r\n=============================================================\r\n\r\nThis git repository contains the Hilltop Python tools and associated documentation.\r\
-    \n"
+  summary: Functions to estimate reference evapotranspiration
+  description: ""
   doc_url: ''
   dev_url: ''
