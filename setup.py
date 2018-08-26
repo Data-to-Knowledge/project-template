@@ -2,21 +2,37 @@
 from setuptools import setup, find_packages
 # To use a consistent encoding
 from codecs import open
-from os import path, environ
+import os
 
-here = path.abspath(path.dirname(__file__))
+here = os.path.abspath(os.path.dirname(__file__))
+
+# General parameters
+name = 'ETo'
+main_package = 'eto'
+datasets = 'datasets'
+version = '1.0.9'
 
 # The below code is for readthedocs. To have sphinx/readthedocs interact with
 # the contained package, readthedocs needs to build the package. But the dependencies
 # should be installed via the conda yml env file rather than during the package build.
-if environ.get('READTHEDOCS', False) == 'True':
+if os.environ.get('READTHEDOCS', False) == 'True':
     INSTALL_REQUIRES = []
 else:
-    INSTALL_REQUIRES = ['pandas', 'pywin32']
+    INSTALL_REQUIRES = ['pandas']
 
 # Get the long description from the README file
-with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
+with open(os.path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
+
+# get all data dirs in the datasets module
+data_files = []
+
+for item in os.listdir(os.path.join(main_package, datasets)):
+    if not item.startswith('__'):
+        if os.path.isdir(os.path.join(main_package, datasets, item)):
+            data_files.append(os.path.join(datasets, item, '*'))
+        elif item.endswith('.zip'):
+            data_files.append(os.path.join(datasets, item))
 
 # Arguments marked as "Required" below must be included for upload to PyPI.
 # Fields marked as "Optional" may be commented out.
@@ -33,7 +49,7 @@ setup(
     # There are some restrictions on what makes a valid project name
     # specification here:
     # https://packaging.python.org/specifications/core-metadata/#name
-    name='hilltop-py',  # Required
+    name=name,  # Required
 
     # Versions should comply with PEP 440:
     # https://www.python.org/dev/peps/pep-0440/
@@ -41,12 +57,12 @@ setup(
     # For a discussion on single-sourcing the version across setup.py and the
     # project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='1.0.7',  # Required
+    version=version,  # Required
 
     # This is a one-line description or tagline of what your project does. This
     # corresponds to the "Summary" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#summary
-    description='Functions to extract data from Hilltop',  # Required
+    description='Class and functions to estimate reference ET',  # Required
 
     # This is an optional longer description of your project that represents
     # the body of text which users will see when they visit PyPI.
@@ -62,7 +78,7 @@ setup(
     #
     # This field corresponds to the "Home-Page" metadata field:
     # https://packaging.python.org/specifications/core-metadata/#home-page-optional
-    url='https://github.com/mullenkamp/hilltop-py',  # Optional
+    url='https://github.com/mullenkamp/ETo',  # Optional
 
     # This should be your name or the name of the organization which owns the
     # project.
@@ -104,7 +120,7 @@ setup(
     # project page. What does your project relate to?
     #
     # Note that this is a string of words separated by whitespace, not a list.
-    keywords='hilltop',  # Optional
+    keywords='reference et',  # Optional
 
     # You can just specify package directories manually here if your project is
     # simple. Or you can use find_packages().
@@ -115,8 +131,7 @@ setup(
     #
     #   py_modules=["my_module"],
     #
-    # packages=find_packages(exclude=['contrib', 'docs', 'tests']),  # Required
-    packages=['hilltoppy'],
+    packages=find_packages(exclude=['contrib', 'docs', 'tests', '__pycashe__']),  # Required
 
     # This field lists other packages that your project depends on to run.
     # Any package you put here will be installed by pip when your project is
@@ -145,7 +160,7 @@ setup(
     # If using Python 2.6 or earlier, then these have to be included in
     # MANIFEST.in as well.
     package_data={  # Optional
-        'sample': ['package_data.dat'],
+        main_package: [datasets + '/*.csv'],
     },
 
     # Although 'package_data' is the preferred approach, in some case you may
@@ -162,9 +177,10 @@ setup(
     #
     # For example, the following would provide a command called `sample` which
     # executes the function `main` from this package when invoked:
-    entry_points={  # Optional
-       'console_scripts': [
-           'sample=sample.command_line:t3',
-       ],
-    },
+    # entry_points={  # Optional
+    #    'console_scripts': [
+    #        'sample=sample.command_line:t3',
+    #    ],
+    # },
+    license='Apache',
 )
