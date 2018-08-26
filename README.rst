@@ -42,8 +42,8 @@ If everything builds correctly, your new package should be installed in your Pyt
 To test, run a Python instance, try to import the package, and load a module::
 
   python
-  import hilltoppy
-  hilltoppy.com.makepy_hilltop()
+  import eto
+  et1 = eto.ETo()
 
 If the package can be loaded and a module/function can be executed, then the building was successful. If not, uninstall the package, troubleshoot the issue(s), and reinstall the package.
 
@@ -58,7 +58,7 @@ Building packages for conda and anaconda
 Building packages for conda/anaconda seems easiest when a PyPI package is used as a base (`skeleton <https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html>`_).
 Create a folder called conda within the root directory and run the following to create a conda yaml file with all of the info that conda needs to build the package::
 
-  conda skeleton pypi hilltop-py
+  conda skeleton pypi eto
 
 Where hilltop-py would be the package name in PyPI.
 
@@ -74,10 +74,25 @@ If it builds sucessfully, then it will recommend to upload the package to anacon
 
 Follow the explanation `here <https://conda.io/docs/user-guide/tutorials/build-pkgs-skeleton.html#optional-uploading-packages-to-anaconda-org>`_ on how to do this.
 
+Putting it all together
+^^^^^^^^^^^^^^^^^^^^^^^
+Once you have all of the config files for both pypi and conda set up, all you need to do to update a package (e.g. new version) is go into the project directory and run the PyPI command::
+
+  python setup.py sdist upload
+
+Then you will need to go to the PyPI repo, copy the sha256 code, and update the conda meta.yml with the sha256 and the appropriate version and run the conda build command::
+
+  conda-build conda
+
+Then possibly upload it to anaconda if it doesn't do it automatically::
+
+  anaconda upload D:\programs\Anaconda3_64bit\conda-bld\win-64\pdsql-1.0.1-py36_0.tar.bz2
+  
+
 Building the documentation in Sphinx
 -------------------------------------
-Building the documentation is well described on the `Automating GIS-processes <https://github.com/Automating-GIS-processes/2016>`_ github page. It's not necessary to install specific versions of sphinx or the sphinx_rtd_theme nor is it necessary to install the google analytics package. The example rst files in this repository should be used. Make sure to modify the setup.py in the source folder in the sphinx folder with the necessary requirements to build the sphinx html files. If the output of the make html build is placed in a root folder called docs, then github can host the website with the GitHub Pages setting.
+Building the documentation is well described on the `Automating GIS-processes <https://github.com/Automating-GIS-processes/2016>`_ github page. It's not necessary to install specific versions of sphinx or the sphinx_rtd_theme nor is it necessary to install the google analytics package. The example rst files in this repository should be used. Make sure to modify the setup.py in the source folder in the sphinx folder with the necessary requirements to build the sphinx html files. If the output of the make html build is placed in a root folder called docs, then github can host the website with the GitHub Pages setting. Other more recent examples can be found in the repositories `ETo <https://github.com/Evapotranspiration/ETo>`_ and `training-basic_python <https://github.com/python-training-for-env-scientists/training-basic_python>`_. Both have up-to-date config files and many examples on how Sphinx works.
 
 An alternative to building the html files and having GitHub host the website is to use `Readthedocs <https://readthedocs.org>`_ to do both. First, make sure that the env.yml file in the sphinx is correctly configured for Readthedocs to build the html from sphinx. Then register with Readthedocs. Then make sure your GitHub repository is public. Then on Readthedocs, pull the appropriate repository. Finally, in the Readthedocs project page, under Admin then advanced settings, add sphinx/source/conf.py for the path to the config file.
 
-Read through both the config.py files in the root and source directories for some of the nuances for readthedocs. Go to the `pdsql <https://github.com/mullenkamp/pdsql>`_ github repository for examples of linking the package functions to the documentation.
+Read through both the config.py files in the root and source directories for some of the nuances for readthedocs. Go to the `pdsql <https://github.com/mullenkamp/pdsql>`_ or the `ETo <https://github.com/Evapotranspiration/ETo>`_ github repositories for examples of linking the package functions to the documentation.
